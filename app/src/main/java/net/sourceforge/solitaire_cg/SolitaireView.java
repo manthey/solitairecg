@@ -583,6 +583,7 @@ public class SolitaireView extends View {
         return true;
       case KeyEvent.KEYCODE_BACK:
         Undo();
+        Log.d("back", "KEYCODE_BACK");
         return true;
     }
     mRules.HandleEvents();

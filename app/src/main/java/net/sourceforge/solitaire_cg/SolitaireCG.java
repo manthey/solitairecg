@@ -507,4 +507,13 @@ public class SolitaireCG extends Activity {
     setContentView(mMainView);
     mSolitaireView.RefreshOptions();
   }
+
+  @Override
+  public void onBackPressed()
+  {
+    Log.d("back", "onbackpressed");
+    mSolitaireView.Undo();
+    //super.onBackPressed();  // optional depending on your needs
+  }
+
 }
