@@ -21,6 +21,11 @@
         android:defaultValue="false"
         android:key="DisplayBigCards" />
     <CheckBoxPreference
+        android:title="@string/card_scale"
+        android:summary="@string/card_scale_desc"
+        android:defaultValue="false"
+        android:key="DisplayCardScale" />
+    <CheckBoxPreference
         android:title="@string/display_time"
         android:summary="@string/display_time_desc"
         android:defaultValue="true"

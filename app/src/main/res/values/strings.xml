@@ -46,6 +46,8 @@
     <string name="options_title">Options</string>
     <string name="big_cards">Large Card Art</string>
     <string name="big_cards_desc">Show simple card art for improved visibility</string>
+    <string name="card_scale">Card Scale</string>
+    <string name="card_scale_desc">Increase card scale</string>
     <string name="display_time">Display Time</string>
     <string name="display_time_desc">Show elapsed time since game started</string>
     <string name="auto_move">Auto Move</string>

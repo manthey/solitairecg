@@ -175,7 +175,10 @@ public class SolitaireView extends View {
     if (oldGameType == mRules.GetGameTypeString()) {
       mRules.SetCarryOverScore(oldScore);
     }
-    Card.SetSize(gameType, mDrawMaster.GetWidth(), mDrawMaster.GetDpi(),
+    boolean scale = GetSettings().getBoolean("DisplayCardScale", false);
+    Card.SetSize(gameType, 
+                 (int)(mDrawMaster.GetWidth() * (scale ? 4./3 : 1)),
+                 (int)(mDrawMaster.GetDpi() * (scale ? 4./3 : 1)),
                  mIsLandscape);
     mDrawMaster.DrawCards(GetSettings().getBoolean("DisplayBigCards", false));
     mCardAnchor = mRules.GetAnchorArray();
@@ -420,7 +423,10 @@ public class SolitaireView extends View {
 
       mGameStarted = !mMoveHistory.isEmpty();
       mRules = Rules.CreateRules(type, map, this, mMoveHistory, mAnimateCard);
-      Card.SetSize(type, mDrawMaster.GetWidth(), mDrawMaster.GetDpi(),
+      boolean scale = GetSettings().getBoolean("DisplayCardScale", false);
+      Card.SetSize(type,
+                   (int)(mDrawMaster.GetWidth() * (scale ? 4./3 : 1)),
+                   (int)(mDrawMaster.GetDpi() * (scale ? 4./3 : 1)),
                    mIsLandscape);
       SetDisplayTime(GetSettings().getBoolean("DisplayTime", true));
       mCardAnchor = mRules.GetAnchorArray();
@@ -456,8 +462,10 @@ public class SolitaireView extends View {
 
   public void onStart() {
     // Restore card size
+    boolean scale = GetSettings().getBoolean("DisplayCardScale", false);
     Card.SetSize(GetSettings().getInt("LastType", Rules.KLONDIKE),
-                 mDrawMaster.GetWidth(), mDrawMaster.GetDpi(),
+                 (int)(mDrawMaster.GetWidth() * (scale ? 4./3 : 1)), 
+                 (int)(mDrawMaster.GetDpi() * (scale ? 4./3 : 1)),
                  mIsLandscape);
   }
 
